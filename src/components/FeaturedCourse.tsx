@@ -1,6 +1,5 @@
 import { Play, Info, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 interface FeaturedCourseProps {
   title: string;
   description: string;
@@ -8,15 +7,18 @@ interface FeaturedCourseProps {
   rating: string;
   image: string;
 }
-
-const FeaturedCourse = ({ title, description, category, rating, image }: FeaturedCourseProps) => {
-  return (
-    <div className="relative h-[70vh] md:h-[80vh] flex items-end">
+const FeaturedCourse = ({
+  title,
+  description,
+  category,
+  rating,
+  image
+}: FeaturedCourseProps) => {
+  return <div className="relative h-[70vh] md:h-[80vh] flex items-end">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
-      >
+      <div className="absolute inset-0 bg-cover bg-center" style={{
+      backgroundImage: `url(${image})`
+    }}>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
       </div>
@@ -52,15 +54,10 @@ const FeaturedCourse = ({ title, description, category, rating, image }: Feature
               <Info className="w-5 h-5 mr-2" />
               Mais Informações
             </Button>
-            <Button size="lg" variant="ghost" className="border border-border hover:border-foreground">
-              <Plus className="w-5 h-5 mr-2" />
-              Minha Lista
-            </Button>
+            
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default FeaturedCourse;
