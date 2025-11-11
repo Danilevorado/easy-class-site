@@ -2,19 +2,14 @@ import { Search, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-
 const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-background to-background/0 transition-all">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-background to-background/0 transition-all">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-8">
-            <h1 className="text-3xl font-bold text-primary tracking-tight">
-              EduStream
-            </h1>
+            
             
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-6">
@@ -37,26 +32,12 @@ const Header = () => {
           <div className="flex items-center gap-4">
             {/* Search */}
             <div className={`flex items-center transition-all ${searchOpen ? 'w-64' : 'w-10'}`}>
-              {searchOpen ? (
-                <div className="flex items-center w-full border border-border bg-card rounded-sm overflow-hidden">
+              {searchOpen ? <div className="flex items-center w-full border border-border bg-card rounded-sm overflow-hidden">
                   <Search className="w-5 h-5 ml-2 text-muted-foreground" />
-                  <Input 
-                    type="text" 
-                    placeholder="Buscar cursos..." 
-                    className="border-0 bg-transparent focus-visible:ring-0 text-sm"
-                    autoFocus
-                    onBlur={() => setSearchOpen(false)}
-                  />
-                </div>
-              ) : (
-                <Button 
-                  variant="ghost" 
-                  size="icon"
-                  onClick={() => setSearchOpen(true)}
-                >
+                  <Input type="text" placeholder="Buscar cursos..." className="border-0 bg-transparent focus-visible:ring-0 text-sm" autoFocus onBlur={() => setSearchOpen(false)} />
+                </div> : <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
                   <Search className="w-5 h-5" />
-                </Button>
-              )}
+                </Button>}
             </div>
 
             {/* Notifications */}
@@ -71,8 +52,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
