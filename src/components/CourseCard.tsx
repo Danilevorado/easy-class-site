@@ -7,19 +7,21 @@ interface CourseCardProps {
   category?: string;
   rating?: string;
   progress?: number;
+  variant?: "horizontal" | "vertical";
 }
 const CourseCard = ({
   title,
   image,
   category,
   rating,
-  progress
+  progress,
+  variant = "horizontal"
 }: CourseCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   return <div className="group relative cursor-pointer transition-all duration-300" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {/* Card Image */}
       <div className="relative overflow-hidden rounded-lg">
-        <img src={image} alt={title} className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-110" />
+        <img src={image} alt={title} className={`w-full ${variant === "vertical" ? "aspect-[3/4]" : "aspect-video"} object-cover transition-transform duration-300 group-hover:scale-110`} />
         
         {/* Progress Bar */}
         {progress !== undefined && <div className="absolute bottom-0 left-0 right-0 h-1 bg-muted">

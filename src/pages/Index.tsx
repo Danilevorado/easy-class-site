@@ -115,7 +115,7 @@ const Index = () => {
         <FeaturedCourse title="Programação Full Stack 2024" description="Aprenda a criar aplicações web completas do zero. Domine React, Node.js, TypeScript e as melhores práticas do mercado. Um curso completo para transformar sua carreira em tecnologia." category="CURSO EM DESTAQUE" rating="4.9★" image={heroProgramming} />
 
         <div className="py-8">
-          <CourseRow title="Continuar Assistindo" courses={myCourses} />
+          <CourseRow title="Continuar Assistindo" courses={myCourses} variant="vertical" />
           
           
         </div>

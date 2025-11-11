@@ -15,9 +15,10 @@ interface Course {
 interface CourseRowProps {
   title: string;
   courses: Course[];
+  variant?: "horizontal" | "vertical";
 }
 
-const CourseRow = ({ title, courses }: CourseRowProps) => {
+const CourseRow = ({ title, courses, variant = "horizontal" }: CourseRowProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -61,8 +62,8 @@ const CourseRow = ({ title, courses }: CourseRowProps) => {
         className="flex gap-2 overflow-x-auto scrollbar-hide px-4 md:px-12 pb-4"
       >
         {courses.map((course) => (
-          <div key={course.id} className="flex-none w-[280px] md:w-[320px]">
-            <CourseCard {...course} />
+          <div key={course.id} className={`flex-none ${variant === "vertical" ? "w-[200px] md:w-[240px]" : "w-[280px] md:w-[320px]"}`}>
+            <CourseCard {...course} variant={variant} />
           </div>
         ))}
       </div>
