@@ -18,7 +18,7 @@ const CourseCard = ({
   const [isHovered, setIsHovered] = useState(false);
   return <div className="group relative cursor-pointer transition-all duration-300" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {/* Card Image */}
-      <div className="relative overflow-hidden rounded-sm">
+      <div className="relative overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-110" />
         
         {/* Progress Bar */}
@@ -53,7 +53,7 @@ const CourseCard = ({
       </div>
 
       {/* Category badge on top */}
-      {category && !isHovered && <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-sm">
+      {category && !isHovered && <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-md">
           {category}
         </div>}
     </div>;
