@@ -112,54 +112,14 @@ const Index = () => {
       <Header />
       
       <main className="pt-16">
-        <FeaturedCourse title="Programação Full Stack 2024" description="Aprenda a criar aplicações web completas do zero. Domine React, Node.js, TypeScript e as melhores práticas do mercado. Um curso completo para transformar sua carreira em tecnologia." category="CURSO EM DESTAQUE" rating="4.9★" image={heroProgramming} />
+        <FeaturedCourse title="Programação Full Stack 2024" description="Aprenda a criar aplicações web completas do zero. Domine React, Node.js, TypeScript e as melhores práticas do mercado." category="CURSO EM DESTAQUE" rating="4.9★" image={heroProgramming} />
 
-        <div className="py-8">
+        <div className="px-4 md:px-12 py-12 space-y-12">
           <CourseRow title="Continuar Assistindo" courses={myCourses} variant="vertical" />
-          
-          
+          <CourseRow title="Populares" courses={popularCourses} variant="vertical" />
+          <CourseRow title="Novos Cursos" courses={newCourses} variant="vertical" />
         </div>
       </main>
-
-      <footer className="border-t border-border py-8 mt-16">
-        <div className="container mx-auto px-4 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="font-bold text-lg mb-4">EduStream</h3>
-              <p className="text-sm text-muted-foreground">
-                Sua plataforma de cursos online com qualidade premium.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Categorias</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">Tecnologia</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Design</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Negócios</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Marketing</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Suporte</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">Central de Ajuda</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Contato</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">Termos de Uso</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Privacidade</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="text-center text-sm text-muted-foreground">
-            © 2024 EduStream. Todos os direitos reservados.
-          </div>
-        </div>
-      </footer>
     </div>;
 };
 export default Index;
