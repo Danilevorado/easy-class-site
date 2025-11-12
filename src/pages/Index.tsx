@@ -111,10 +111,10 @@ const Index = () => {
   return <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-16">
+      <main className="pt-12 sm:pt-14 md:pt-16">
         <FeaturedCourse title="Programação Full Stack 2024" description="Aprenda a criar aplicações web completas do zero. Domine React, Node.js, TypeScript e as melhores práticas do mercado." category="CURSO EM DESTAQUE" rating="4.9★" image={heroProgramming} />
 
-        <div className="px-4 md:px-12 py-12 space-y-12">
+        <div className="py-6 sm:py-8 md:py-12 space-y-6 sm:space-y-8 md:space-y-12">
           <CourseRow title="Continuar Assistindo" courses={myCourses} variant="vertical" />
           <CourseRow title="Populares" courses={popularCourses} variant="vertical" />
           <CourseRow title="Novos Cursos" courses={newCourses} variant="vertical" />

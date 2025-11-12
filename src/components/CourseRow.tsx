@@ -41,15 +41,15 @@ const CourseRow = ({ title, courses, variant = "horizontal" }: CourseRowProps) =
   };
 
   return (
-    <div className="relative group/row mb-8">
-      <h2 className="text-2xl font-bold mb-4 px-4 md:px-12">{title}</h2>
+    <div className="relative group/row mb-6 sm:mb-8">
+      <h2 className="text-base sm:text-lg md:text-2xl font-bold mb-3 sm:mb-4 px-3 sm:px-4 md:px-12">{title}</h2>
       
-      {/* Left Arrow */}
+      {/* Left Arrow - hidden on mobile */}
       {showLeftArrow && (
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-full w-12 rounded-none bg-background/80 hover:bg-background/95 opacity-0 group-hover/row:opacity-100 transition-opacity"
+          className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 h-full w-12 rounded-none bg-background/80 hover:bg-background/95 opacity-0 group-hover/row:opacity-100 transition-opacity"
           onClick={() => scroll("left")}
         >
           <ChevronLeft className="w-8 h-8" />
@@ -59,21 +59,21 @@ const CourseRow = ({ title, courses, variant = "horizontal" }: CourseRowProps) =
       {/* Courses Container */}
       <div
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto scrollbar-hide px-4 md:px-12 pb-4"
+        className="flex gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide px-3 sm:px-4 md:px-12 pb-3 sm:pb-4"
       >
         {courses.map((course) => (
-          <div key={course.id} className={`flex-none ${variant === "vertical" ? "w-[200px] md:w-[240px]" : "w-[280px] md:w-[320px]"}`}>
+          <div key={course.id} className={`flex-none ${variant === "vertical" ? "w-[120px] sm:w-[150px] md:w-[240px]" : "w-[180px] sm:w-[220px] md:w-[320px]"}`}>
             <CourseCard {...course} variant={variant} />
           </div>
         ))}
       </div>
 
-      {/* Right Arrow */}
+      {/* Right Arrow - hidden on mobile */}
       {showRightArrow && (
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-full w-12 rounded-none bg-background/80 hover:bg-background/95 opacity-0 group-hover/row:opacity-100 transition-opacity"
+          className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 h-full w-12 rounded-none bg-background/80 hover:bg-background/95 opacity-0 group-hover/row:opacity-100 transition-opacity"
           onClick={() => scroll("right")}
         >
           <ChevronRight className="w-8 h-8" />

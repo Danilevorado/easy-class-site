@@ -28,15 +28,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", controlHeader);
   }, [lastScrollY]);
   return <header className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-background to-transparent transition-all duration-300 ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-      <div className="container mx-auto px-4 md:px-12 py-4">
+      <div className="container mx-auto px-3 sm:px-4 md:px-12 py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">EduStream</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-primary">EduStream</h1>
           </div>
 
           {/* Center Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             <a href="#" className="text-foreground text-sm hover:text-muted-foreground transition-colors">
               Início
             </a>
@@ -52,15 +52,15 @@ const Header = () => {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* Search */}
-            <Button variant="ghost" size="icon" onClick={() => setSearchOpen(!searchOpen)}>
-              <Search className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10" onClick={() => setSearchOpen(!searchOpen)}>
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
 
             {/* Profile */}
-            <Button variant="ghost" size="icon" onClick={() => navigate("/login")}>
-              <User className="w-5 h-5" />
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10" onClick={() => navigate("/login")}>
+              <User className="w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>
