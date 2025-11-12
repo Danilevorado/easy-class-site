@@ -2,7 +2,9 @@ import { Search, Bell, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -66,7 +68,7 @@ const Header = () => {
             </Button>
 
             {/* Profile */}
-            <Button variant="ghost" size="icon" className="rounded-sm">
+            <Button variant="ghost" size="icon" className="rounded-sm" onClick={() => navigate("/login")}>
               <User className="w-5 h-5" />
             </Button>
           </div>
