@@ -76,11 +76,11 @@ const CourseModal = ({ isOpen, onClose, course }: CourseModalProps) => {
                 
                 {/* Course Info Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <p className="text-xs text-muted-foreground mb-2">{course.category}</p>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-3">{course.title}</h2>
+                  <p className="text-xs md:text-sm text-muted-foreground mb-2">{course.category}</p>
+                  <h2 className="text-2xl md:text-4xl font-bold mb-4 leading-tight max-w-3xl">{course.title}</h2>
                   
                   {/* Progress Bar */}
-                  <div className="w-full max-w-xs h-1 bg-muted/30 rounded-full mb-4">
+                  <div className="w-full max-w-md h-1 bg-muted/30 rounded-full mb-6">
                     <div
                       className="h-full bg-primary rounded-full transition-all"
                       style={{ width: `${course.progress}%` }}
@@ -88,8 +88,8 @@ const CourseModal = ({ isOpen, onClose, course }: CourseModalProps) => {
                   </div>
 
                   {/* Resume Button */}
-                  <Button className="bg-white text-black hover:bg-white/90 rounded-sm">
-                    <Play className="w-4 h-4 fill-current" />
+                  <Button className="bg-white text-black hover:bg-white/90 rounded-sm px-8 h-11 font-semibold">
+                    <Play className="w-5 h-5 mr-2 fill-current" />
                     Retomar
                   </Button>
                 </div>
