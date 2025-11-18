@@ -16,9 +16,10 @@ interface CourseRowProps {
   title: string;
   courses: Course[];
   variant?: "horizontal" | "vertical";
+  onCourseClick?: (course: Course) => void;
 }
 
-const CourseRow = ({ title, courses, variant = "horizontal" }: CourseRowProps) => {
+const CourseRow = ({ title, courses, variant = "horizontal", onCourseClick }: CourseRowProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -63,7 +64,7 @@ const CourseRow = ({ title, courses, variant = "horizontal" }: CourseRowProps) =
       >
         {courses.map((course) => (
           <div key={course.id} className={`flex-none ${variant === "vertical" ? "w-[120px] sm:w-[150px] md:w-[240px]" : "w-[180px] sm:w-[220px] md:w-[320px]"}`}>
-            <CourseCard {...course} variant={variant} />
+            <CourseCard {...course} variant={variant} onClick={() => onCourseClick?.(course)} />
           </div>
         ))}
       </div>
