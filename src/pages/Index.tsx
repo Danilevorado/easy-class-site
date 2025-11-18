@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import FeaturedCourse from "@/components/FeaturedCourse";
 import CourseRow from "@/components/CourseRow";
+import CourseModal from "@/components/CourseModal";
 import heroProgramming from "@/assets/hero-programming.jpg";
 import courseDesign from "@/assets/course-design.jpg";
 import courseAI from "@/assets/course-ai.jpg";
@@ -10,6 +12,54 @@ import coursePhoto from "@/assets/course-photo.jpg";
 import courseMusic from "@/assets/course-music.jpg";
 import courseBusiness from "@/assets/course-business.jpg";
 const Index = () => {
+  const [selectedCourse, setSelectedCourse] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCourseClick = (course: any) => {
+    // Add mock module data
+    const courseWithModules = {
+      ...course,
+      description: "Aprenda as melhores práticas e técnicas avançadas neste curso completo.",
+      modules: [
+        {
+          id: "1",
+          title: "Configurando as Aulas",
+          lessons: [
+            {
+              id: "1",
+              title: "Primeiros Passos",
+              thumbnail: course.image,
+              progress: 65,
+              completed: false
+            },
+            {
+              id: "2",
+              title: "Introdução ao Conteúdo",
+              thumbnail: course.image,
+              progress: 0,
+              completed: false
+            }
+          ]
+        },
+        {
+          id: "2",
+          title: "Conteúdo Principal",
+          lessons: [
+            {
+              id: "3",
+              title: "Conceitos Fundamentais",
+              thumbnail: course.image,
+              progress: 0,
+              completed: false
+            }
+          ]
+        }
+      ]
+    };
+    setSelectedCourse(courseWithModules);
+    setIsModalOpen(true);
+  };
+
   const myCourses = [{
     id: "1",
     title: "Desenvolvimento Web Completo",
@@ -115,11 +165,32 @@ const Index = () => {
         <FeaturedCourse title="Programação Full Stack 2024" description="Aprenda a criar aplicações web completas do zero. Domine React, Node.js, TypeScript e as melhores práticas do mercado." category="CURSO EM DESTAQUE" rating="4.9★" image={heroProgramming} />
 
         <div className="py-6 sm:py-8 md:py-12 space-y-6 sm:space-y-8 md:space-y-12">
-          <CourseRow title="Continuar Assistindo" courses={myCourses} variant="vertical" />
-          <CourseRow title="Populares" courses={popularCourses} variant="vertical" />
-          <CourseRow title="Novos Cursos" courses={newCourses} variant="vertical" />
+          <CourseRow 
+            title="Continuar Assistindo" 
+            courses={myCourses} 
+            variant="vertical"
+            onCourseClick={handleCourseClick}
+          />
+          <CourseRow 
+            title="Populares" 
+            courses={popularCourses} 
+            variant="vertical"
+            onCourseClick={handleCourseClick}
+          />
+          <CourseRow 
+            title="Novos Cursos" 
+            courses={newCourses} 
+            variant="vertical"
+            onCourseClick={handleCourseClick}
+          />
         </div>
       </main>
+
+      <CourseModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        course={selectedCourse}
+      />
     </div>;
 };
 export default Index;
